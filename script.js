@@ -120,7 +120,21 @@ function generatePassword() {
     special = confirm("Include special characters in the password?");
   }
   
+// Function for getting a element from an array
 
+let characters = "";
+let password = "";
+  if (lowercase) characters += lowerCasedCharacters; 
+  if (uppercase) characters += upperCasedCharacters; 
+  if (numeric)  characters += numericCharacters; 
+  if (special) characters += specialCharacters;
+
+
+// Function to generate password with user input
+  for (let i = 0; i < length; i++) {
+    password = password += characters[Math.floor(Math.random() * characters.length)];
+  }
+   return password;
 
 }
 // Get references to the #generate element
