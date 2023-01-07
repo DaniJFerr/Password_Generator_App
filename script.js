@@ -105,6 +105,21 @@ function generatePassword() {
   //   alert ("Enter the length of the password (at least 10 and no more than 64 characters):");
   //   length = prompt("Enter the length of the password (at least 10 and no more than 64 characters):");
   // }
+  lowercase = confirm("Include lowercase characters in the password?");
+  uppercase = confirm("Include uppercase characters in the password?");
+  numeric = confirm("Include numeric characters in the password?");
+  special = confirm("Include special characters in the password?");
+  
+  // Validate that at least one character type is selected
+
+  while (!lowercase && !uppercase && !numeric && !special) {
+    alert("You must select at least one character type to include in the password!");
+    lowercase = confirm("Include lowercase characters in the password?");
+    uppercase = confirm("Include uppercase characters in the password?");
+    numeric = confirm("Include numeric characters in the password?");
+    special = confirm("Include special characters in the password?");
+  }
+  
 
 
 }
