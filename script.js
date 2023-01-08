@@ -1,8 +1,12 @@
 // Array of special characters to be included in password
 var specialCharacters = [
   "@",
-  "@",
   "%",
+  "#",
+  "$",
+  "^",
+  "&",
+  "*",
   "+",
   "!",
   "#",
@@ -123,24 +127,20 @@ function generatePassword() {
 
 let characters = [];
 
-  if (lowercase) {
-    characters = characters.concat(lowerCasedCharacters); 
-  }
-  if (uppercase) {
-    characters = characters.concat (upperCasedCharacters); 
-  }
-  if (numeric)  {
-    characters = characters.concat (numericCharacters); 
-  }
-  if (special) {
-    characters = characters.concat (specialCharacters);
-  }
+  if (lowercase) characters = characters.concat(lowerCasedCharacters); 
+  
+  if (uppercase) characters = characters.concat(upperCasedCharacters); 
+  
+  if (numeric) characters = characters.concat (numericCharacters); 
+
+  if (special) characters = characters.concat (specialCharacters);
+  
   console.log(characters);
 
 // method to generate password from the variable that has integrated user input and array
 let password = "";
   for (let i = 0; i < length; i++) {
-    password = password += characters [Math.floor(Math.random() * characters.length)];
+    password = password += characters[Math.floor(Math.random() * characters.length)];
   }
    return password;
 
