@@ -1,25 +1,24 @@
 // Array of special characters to be included in password
 var specialCharacters = [
-  '@',
-  '%',
-  '+',
-  '\\',
-  '/',
-  '!',
-  '#',
-  '$',
-  '^',
-  '?',
-  ':',
-  ')',
-  '(',
-  '}',
-  '{',
-  ']',
-  '[',
-  '~',
-  '-',
-  '_',
+  "@",
+  "@",
+  "%",
+  "+",
+  "!",
+  "#",
+  "$",
+  "^",
+  "?",
+  ":",
+  ")",
+  "(",
+  "}",
+  "{",
+  "]",
+  "[",
+  "~",
+  "-",
+  "_"
 ];
 
 // Array of numeric characters to be included in password
@@ -27,62 +26,62 @@ var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 // Array of lowercase characters to be included in password
 var lowerCasedCharacters = [
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'l',
-  'm',
-  'n',
-  'o',
-  'p',
-  'q',
-  'r',
-  's',
-  't',
-  'u',
-  'v',
-  'w',
-  'x',
-  'y',
-  'z'
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z"
 ];
 
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z'
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z"
 ];
 
 // Function to prompt user for password options and validate the password minimal requistion 
@@ -120,19 +119,28 @@ function generatePassword() {
     special = confirm("Include special characters in the password?");
   }
   
-// Function for getting a element from an array
+//Method to getting a element from an array
 
-let characters = "";
+let characters = [];
+
+  if (lowercase) {
+    characters = characters.concat(lowerCasedCharacters); 
+  }
+  if (uppercase) {
+    characters = characters.concat (upperCasedCharacters); 
+  }
+  if (numeric)  {
+    characters = characters.concat (numericCharacters); 
+  }
+  if (special) {
+    characters = characters.concat (specialCharacters);
+  }
+  console.log(characters);
+
+// method to generate password from the variable that has integrated user input and array
 let password = "";
-  if (lowercase) characters += lowerCasedCharacters; 
-  if (uppercase) characters += upperCasedCharacters; 
-  if (numeric)  characters += numericCharacters; 
-  if (special) characters += specialCharacters;
-
-
-// Function to generate password with user input
   for (let i = 0; i < length; i++) {
-    password = password += characters[Math.floor(Math.random() * characters.length)];
+    password = password += characters [Math.floor(Math.random() * characters.length)];
   }
    return password;
 
@@ -144,7 +152,7 @@ let generateBtn = document.querySelector('#generate');
 function writePassword() {
   let passwordText = document.querySelector('#password');
   let password = generatePassword();
-  passwordText.value += password;
+  passwordText.value = password;
 }
 
 // Add event listener to generate button
